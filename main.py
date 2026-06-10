@@ -12,3 +12,30 @@ def main():
 #Szukanie najmniejszego lub największego elementu w liście, 
 #Odwracanie kolejności liter w podanym wyrazie, 
 #Zliczanie wystąpień podanego znaku w tekście, 
+'''
+
+def liczenie_ilosci_liter(tekst,znak):
+    ilosc_liter = 0
+    for litera in tekst:
+        if litera==znak:
+            licznik+=1
+        else:
+            ilosc_liter[litera] = 1
+    return ilosc_liter
+    
+    
+def maksimum(lista):
+    max = lista[0]
+    for i in range(1, len(lista)):
+        if lista[i] > max:
+            max = lista[i]
+    return max
+
+def minimum(lista):
+    min = lista[0]
+    for i in range(1, len(lista)):
+        if lista[i] < min:
+            min = lista[i]
+    return min
+
+    '''
