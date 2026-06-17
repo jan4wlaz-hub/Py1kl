@@ -1,9 +1,3 @@
-'''
-Generowanie wyrazów ciągu Fibonacciego iteracyjne,
-Generowanie wyrazów ciągu Fibonacciego rekurencyjnie,
-Obliczanie silni iteracyjnie,
-Obliczanie silni rekurencyjnie,
-'''
 
 
 def silnia(n):
@@ -22,9 +16,20 @@ def silnia_rekurencyjna(n):
 def fibonacci(n):
     if n <= 0:
         return 0
-    elif n == 1:
+    elif n == 1 or n == 2:
         return 1
     return fibonacci(n - 1) + fibonacci(n - 2)
+
+
+def fibonacci_iteracyjnie(n):
+    if n <= 0:
+        return []
+    if n == 1:
+        return [1]
+    seq = [1, 1]
+    for _ in range(2, n):
+        seq.append(seq[-1] + seq[-2])
+    return seq
 
 
 def main():
@@ -36,7 +41,8 @@ def main():
 
     print("Silnia iteracyjna:", silnia(n))
     print("Silnia rekurencyjna:", silnia_rekurencyjna(n))
-    print("Fibonacci:", fibonacci(n))
+    print("Ciąg Fibonacciego iteracyjnie:", fibonacci_iteracyjnie(n))
+    print("N-ty wyraz Fibonacciego rekurencyjnie:", fibonacci(n))
 
 if __name__ == "__main__":
     main()

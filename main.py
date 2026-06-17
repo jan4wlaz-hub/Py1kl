@@ -5,6 +5,8 @@ import iteracja_rekurencja
 import obliczanie_silni_rekurencyjnie_i_iteracyjnie
 import szyfr_cezara
 import z_dziesietnego_binarny_i_odwrotnie
+import tekstowe_funkcje
+import rozklad_na_czynniki_pierwsze
 
 def main():
     while True:
@@ -18,6 +20,8 @@ def main():
         print("5. obliczanie_silni_rekurencyjnie_i_iteracyjnie")
         print("6. szyfr_cezara")
         print("7. z_dziesietnego_binarny_i_odwrotnie")
+        print("8. tekstowe_funkcje")
+        print("9. rozklad_na_czynniki_pierwsze")
         print("0. Wyjście")
         print("="*50)
         
@@ -37,6 +41,10 @@ def main():
             szyfr_cezara.main() if hasattr(szyfr_cezara, 'main') else print("Brak funkcji main w module szyfr_cezara")
         elif choice == "7":
             z_dziesietnego_binarny_i_odwrotnie.main() if hasattr(z_dziesietnego_binarny_i_odwrotnie, 'main') else print("Brak funkcji main w module z_dziesietnego_binarny_i_odwrotnie")
+        elif choice == "8":
+            tekstowe_funkcje.main() if hasattr(tekstowe_funkcje, 'main') else print("Brak funkcji main w module tekstowe_funkcje")
+        elif choice == "9":
+            rozklad_na_czynniki_pierwsze.main() if hasattr(rozklad_na_czynniki_pierwsze, 'main') else print("Brak funkcji main w module rozklad_na_czynniki_pierwsze")
         elif choice == "0":
             print("Do widzenia!")
             break
@@ -47,34 +55,3 @@ def main():
 if __name__ == "__main__":
     main()    
 
-#tasks:
-#Szukanie najmniejszego lub największego elementu w liście, 
-#Odwracanie kolejności liter w podanym wyrazie, 
-#Zliczanie wystąpień podanego znaku w tekście, 
-'''
-
-def liczenie_ilosci_liter(tekst,znak):
-    ilosc_liter = 0
-    for litera in tekst:
-        if litera==znak:
-            ilosc_liter+=1
-        else:
-            ilosc_liter[litera] = 1
-    return ilosc_liter
-    
-    
-def maksimum(lista):
-    max = lista[0]
-    for i in range(1, len(lista)):
-        if lista[i] > max:
-            max = lista[i]
-    return max
-
-def minimum(lista):
-    min = lista[0]
-    for i in range(1, len(lista)):
-        if lista[i] < min:
-            min = lista[i]
-    return min
-
-    '''
