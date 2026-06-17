@@ -1,4 +1,3 @@
-#27VI2026
 def nwd_odejmowanie(a, b):
     while a != b:
         if a > b:

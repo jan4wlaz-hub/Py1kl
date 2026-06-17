@@ -9,7 +9,7 @@ a. Jeżeli liczba podzielna jest przez 3 – wypisz słowo „Fizz”
 
 b. Jeżeli liczba podzielna jest przez 5 – wypisz słowo „Buzz”
 
-c. Jeżeli liczba podzielna jest jednocześnie przez 3 i 5 – wypisz „FizzBuzz”
+c. Jeżeli liczba jest jednocześnie przez 3 i 5 – wypisz „FizzBuzz”
 
 3. Stwórz program znajdujący najmniejszą wartość z listy.
 
@@ -38,41 +38,33 @@ Rekurencja
 4. Stwórz program odwracający podany ciąg znaków np. słowo „owca” powinno zostać zamienione na „acwo”.
 
 5. Stwórz program sumujący wszystkie elementy listy.
-
-
-
 '''
 
-
-
-#1
 def silnia(n):
     wynik = 1
     for i in range(1, n + 1):
         wynik *= i
     return wynik
-n=input("Podaj liczbę: ")
-print(silnia(n))
+
 
 def silnia_rekurencyjna(n):
     if n == 0 or n == 1:
         return 1
-    else:
-        return n * silnia_rekurencyjna(n - 1)
-n=input("Podaj liczbę: ")
-print(silnia_rekurencyjna(n))
+    return n * silnia_rekurencyjna(n - 1)
 
-#2
-for i in range(1, 101):
-    if i % 3 == 0 and i % 5 == 0:
-        print("FizzBuzz")
-    elif i % 3 == 0:
-        print("Fizz")
-    elif i % 5 == 0:
-        print("Buzz")
-    else:
-        print(i)
-#3
+
+def fizzbuzz():
+    for i in range(1, 101):
+        if i % 3 == 0 and i % 5 == 0:
+            print('FizzBuzz')
+        elif i % 3 == 0:
+            print('Fizz')
+        elif i % 5 == 0:
+            print('Buzz')
+        else:
+            print(i)
+
+
 def najmniejsza_wartosc(lista):
     if not lista:
         return None
@@ -82,43 +74,55 @@ def najmniejsza_wartosc(lista):
             najmniejsza = liczba
     return najmniejsza
 
-#4
+
 def odwroc_ciag(ciag):
-    odwrocony = ""
+    odwrocony = ''
     for i in range(len(ciag) - 1, -1, -1):
         odwrocony += ciag[i]
     return odwrocony
 
-#1 rekurencja
-import sys
 
 def licz_rosnaco(n):
     if n < 1:
         return
-    
     if n == 1:
         print(1)
-    else:
-        licz_rosnaco(n - 1)
-        print(n)
-
-try:
-    liczba = int(input("Podaj liczbę: "))
-    licz_rosnaco(liczba)
-except RecursionError:
-    print("i'm actually not sure about that (⁠๑⁠•⁠﹏⁠•⁠) - liczba jest za duża dla rekurencji!")
-except Exception as e:
-    print(f"Wystąpił błąd....")
-
-def wypisz_rosnaco(n):
-    if n < 1:
         return
-    wypisz_rosnaco(n - 1)
+    licz_rosnaco(n - 1)
     print(n)
 
-#2 rekurencja
-def silnia_rekurencyjna(n):
-    if n == 0 or n == 1:
-        return 1
+
+def main():
+    print('Wybierz działanie modułu iteracja_rekurencja:')
+    print('1. Oblicz silnię iteracyjnie i rekurencyjnie')
+    print('2. Wypisz FizzBuzz od 1 do 100')
+    print('3. Odwróć ciąg znaków')
+    print('4. Wypisz liczby od 1 do n rosnąco')
+    print('0. Powrót')
+
+    choice = input('Podaj numer opcji: ').strip()
+    if choice == '1':
+        try:
+            n = int(input('Podaj liczbę: '))
+            print('Silnia iteracyjna:', silnia(n))
+            print('Silnia rekurencyjna:', silnia_rekurencyjna(n))
+        except ValueError:
+            print('Nieprawidłowa wartość. Wprowadź liczbę całkowitą.')
+    elif choice == '2':
+        fizzbuzz()
+    elif choice == '3':
+        text = input('Podaj ciąg znaków: ')
+        print('Odwrócony ciąg:', odwroc_ciag(text))
+    elif choice == '4':
+        try:
+            n = int(input('Podaj liczbę: '))
+            licz_rosnaco(n)
+        except ValueError:
+            print('Nieprawidłowa wartość. Wprowadź liczbę całkowitą.')
+    elif choice == '0':
+        return
     else:
-        return n * silnia_rekurencyjna(n - 1)
+        print('Nieznana opcja.')
+
+if __name__ == '__main__':
+    main()

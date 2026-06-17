@@ -22,14 +22,21 @@ def caesar_cipher(text: str, shift: int) -> str:
             
     return "".join(result)
 
-################
 
-tekst=input("podaj txt")
-przesuniecie=int(input("podaj przesuniecie"))
+def main():
+    tekst = input("Podaj tekst do zaszyfrowania: ")
+    try:
+        przesuniecie = int(input("Podaj przesunięcie: "))
+    except ValueError:
+        print("Nieprawidłowe przesunięcie. Wprowadź liczbę całkowitą.")
+        return
 
-zaszyfrowany = caesar_cipher(tekst, przesuniecie)
-odszyfrowany = caesar_cipher(zaszyfrowany, -przesuniecie)
+    zaszyfrowany = caesar_cipher(tekst, przesuniecie)
+    odszyfrowany = caesar_cipher(zaszyfrowany, -przesuniecie)
 
-print(f"Oryginał: {tekst}")
-print(f"Szyfr:    {zaszyfrowany}")
-print(f"Odszyfr:  {odszyfrowany}")
+    print(f"Oryginał: {tekst}")
+    print(f"Szyfr:    {zaszyfrowany}")
+    print(f"Odszyfr:  {odszyfrowany}")
+
+if __name__ == "__main__":
+    main()

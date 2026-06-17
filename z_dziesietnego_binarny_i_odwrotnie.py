@@ -1,19 +1,32 @@
-def dziesietny_na_binarny ():
-    liczba = int(input("Podaj liczbe do konwersji z dziesietnego na binarny: "))
-    # Konwersja z dziesietnego na binarny
+def dziesietny_na_binarny():
+    try:
+        liczba = int(input("Podaj liczbę do konwersji z dziesiętnego na binarny: "))
+    except ValueError:
+        print("Nieprawidłowa liczba.")
+        return
+
     binarny = ""
     temp = liczba
+    if temp == 0:
+        binarny = "0"
     while temp > 0:
         binarny = str(temp % 2) + binarny
-        temp = temp // 2
+        temp //= 2
     print(f"{liczba} w systemie binarnym to: {binarny}")
 
 def binarny_na_dziesietny():
-    # Konwersja z binarnego na dziesietny
-    binarny_input = input("Podaj liczbe w systemie binarnym: ")
-    dziesietny = int(binarny_input, 2)
-    print(f"{binarny_input} w systemie dziesietnym to: {dziesietny}")
+    binarny_input = input("Podaj liczbę w systemie binarnym: ")
+    try:
+        dziesietny = int(binarny_input, 2)
+    except ValueError:
+        print("Nieprawidłowy format liczby binarnej.")
+        return
+    print(f"{binarny_input} w systemie dziesiętnym to: {dziesietny}")
 
-if __name__ == "__main__":
+
+def main():
     dziesietny_na_binarny()
     binarny_na_dziesietny()
+
+if __name__ == "__main__":
+    main()

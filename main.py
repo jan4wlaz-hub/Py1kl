@@ -3,7 +3,7 @@ import sito_erastostelesa
 import module_27VI2026
 import iteracja_rekurencja
 import obliczanie_silni_rekurencyjnie_i_iteracyjnie
-import szyfr_cezara 
+import szyfr_cezara
 import z_dziesietnego_binarny_i_odwrotnie
 
 def main():
