@@ -43,6 +43,8 @@ Rekurencja
 
 '''
 
+
+
 #1
 def silnia(n):
     wynik = 1
